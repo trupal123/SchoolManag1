@@ -1,96 +1,285 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatiable" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"">
     <title>School Management System</title>
-    <link rel="stylesheet" href="ebook.css">  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h2 {
+            font-size: 35px;
+            line-height: 55px;
+            color: #222;
+        }
+
+        .name {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 80px;
+            background-color: #d6e7e3;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.11);
+            z-index: 999;
+            position: sticky;
+            top: 0;
+            left: 0;
+        }
+
+        #navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #navbar li {
+            list-style: none;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        #navbar li a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            transition: 0.3s ease;
+        }
+
+        #navbar li a:hover,
+        #navbar li a.active {
+            color: #48967e;
+        }
+
+        #navbar li a.active::after,
+        #navbar li a:hover::after {
+            content: "";
+            width: 54%;
+            height: 2px;
+            background: #48967e;
+            position: absolute;
+            bottom: -4px;
+            left: 20px;
+        }
+
+        #footer{
+    padding: 50px 10px;
+    background-color: #fff;
+}
+#footer .social{
+    text-align: center;
+    padding-bottom: 20px;
+    color: rgb(7, 110, 110);
+}
+#footer .social a{
+    font-size: 36px;
+    color: inherit;
+    border: 1px solid rgb(173, 173, 173);
+    width: 40px;
+    height: 40px;
+    line-height:  45px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 8px;
+    opacity: 0.75;
+}
+#footer .social a:hover{
+    opacity: 0.9;
+}
+#footer ul{
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 25px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+    font-weight: 400;
+}
+#footer ul li a{
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+}
+#footer ul li{
+    display: inline-block;
+    padding: 0 15px;
+
+}
+#footer ul li a:hover{
+    opacity: 1;
+}
+#footer .copyright{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: rgb(160, 160, 160);
+}
+#class1{
+    text-align: center;
+}
+#class1 .cls-container{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;  
+}
+#class1 .cls{
+    width: 23%;
+    min-width: 220px;
+    padding: 10px 10px;
+    border: 1px solid #afc9b3;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow:  20px 20px 30px rgba(0, 0, 0, 0.082);
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+}
+#class1 .cls:hover{
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.158);
+}
+#class1 .cls img{
+    width: 90%;
+    border-radius: 15px;
+    width: 180px;
+    height: 175px;;
+}
+#class1 .cls .des{
+    text-align: start;
+    padding: 10px 0;
+}
+#class1 .cls .des h5{
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+    </style>
 </head>
+
 <body>
-    <section id ="header">
-        <h2 class="logo">Motherland International School</h2>
-    <div>
-        <ul id="navbar">
-            <li><a href="home.html">Home</a></li>
-            <li><a class="active" href="#">Ebook</a></li>
-            <li><a href="#">Event</a></li>
-            <li><a href="#">Contact</a></li>
-            <li id="lg-bag"><a href="#"><i class="fa fa-user-plus" style="color:black;"></i></a></li>
-            <a href="#" id="close"><i class="fa fa-times" style="color:black;"></i></a>
-        </ul>
-    </div>
-    <div id="mobile">
-        <a href="#"><i class="fa fa-user-plus" style="color:black;"></i></a>
-        <i id="bar" class="fa fa-outdent"></i>
-    </div>
+    <section id="header">
+        <h2 class="name">Online School</h2>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="#">Home</a></li>
+                <li><a href="ebook.html">Ebook</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#"><i class="fa fa-user-plus" style="color:black;"></i></a></li>
+            </ul>
+        </div>
     </section>
 
-    <section id="main">
-    <h2>Standard 1</h2>
-<div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Click Here</button>
-  <div id="myDropdown" class="dropdown-content">
-    <h2>Social Science</h2>
-    <h2>Gujarati</h2>
-    <h2>English</h2>
-    <h2>Maths</h2>
-    <h2>Computer</h2>
-  </div>
-</div>
+    <section id="class1"class="section-p1">
+        <div class="cls-container">
+            <div class="cls">
+                <img src="#" alt="">
+                <div class="des">
+                    <h5> Standard 1 </h5>
+                </div>
+            </div>
+            <div class="cls">
+                <img src="#" alt="">
+                <div class="des">
+                    <h5> Standard 2 </h5>
+                </div>
+            </div>
+            <div class="cls">
+                <img src="#" alt="">
+                <div class="des">
+                    <h5> Standard 3 </h5>
+                </div>
+            </div>
+            <div class="cls">
+                <img src="#" alt="">
+                <div class="des">
+                    <h5> Standard 4 </h5>
+                </div>
+            </div>
+            <div class="cls">
+                <img src="#" alt="">
+                <div class="des">
+                    <h5> Standard 5 </h5>
+                </div>
+            </div>
+            <div class="cls">
+                <img src="#" alt="">
+                <div class="des">
+                    <h5> Standard 6 </h5>
+                </div>
+            </div>
+            <div class="cls">
+                <img src="#" alt="">
+                <div class="des">
+                    <h5> Standard 7 </h5>
+                </div>
+            </div>
+            <div class="cls">
+                <img src="#" alt="">
+                <div class="des">
+                    <h5> Standard 8 </h5>
+                </div>
+            </div>
+            <div class="cls">
+                <img src="#" alt="">
+                <div class="des">
+                    <h5> Standard 9 </h5>
+                </div>
+            </div>
+            <div class="cls">
+                <img src="#" alt="">
+                <div class="des">
+                    <h5> Standard 10 </h5>
+                </div>
+            </div>
+            <div class="cls">
+                <img src="#" alt="">
+                <div class="des">
+                    <h5> Standard 11 </h5>
+                </div>
+            </div>
+            <div class="cls">
+                <img src="#" alt="">
+                <div class="des">
+                    <h5> Standard 12 </h5>
+                </div>
+            </div>
+        </div>            
+    </section>
 
-<h2>Standard 2</h2>
-<div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Click Here</button>
-  <div id="myDropdown" class="dropdown-content">
-    <h2>Social Science</h2>
-    <h2>Gujarati</h2>
-    <h2>English</h2>
-    <h2>Maths</h2>
-    <h2>Computer</h2>
-  </div>
-</div>
 
-<h2>Standard 3</h2>
-<div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Click Here</button>
-  <div id="myDropdown" class="dropdown-content">
-    <h2>Social Science</h2>
-    <h2>Gujarati</h2>
-    <h2>English</h2>
-    <h2>Maths</h2>
-    <h2>Computer</h2>
-  </div>
-</div>
-
-<h2>Standard 4</h2>
-<div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Click Here</button>
-  <div id="myDropdown" class="dropdown-content">
-    <h2>Social Science</h2>
-    <h2>Gujarati</h2>
-    <h2>English</h2>
-    <h2>Maths</h2>
-    <h2>Computer</h2>
-  </div>
-</div>
-
-<h2>Standard 5</h2>
-<div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Click Here</button>
-  <div id="myDropdown" class="dropdown-content">
-    <h2>Social Science</h2>
-    <h2>Gujarati</h2>
-    <h2>English</h2>
-    <h2>Maths</h2>
-    <h2>Computer</h2>
-  </div>
-</div>
-
-
-</section>
-    <script src="ebook.js"></script>
+    <footer id="footer">
+        <div class="social">
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-snapchat"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+        </div>
+        <ul class="list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">contact Us</a></li>
+        </ul>
+    <p class="copyright">
+        OnlineSchool@2022
+    </p>
+    </footer>
 </body>
+
 </html>
